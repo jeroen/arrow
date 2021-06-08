@@ -74,7 +74,7 @@ Result<std::shared_ptr<io::InputStream>> FileSource::OpenCompressed(
       }
     }
   } else {
-    actual_compression = compression.value();
+    actual_compression = *compression;
   }
   if (actual_compression == Compression::type::UNCOMPRESSED) {
     return file;
